@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" style="background-color: #020004;">
+<defs>
+<filter id="tr-neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+<feGaussianBlur stdDeviation="2.5" result="blur1"/>
+<feGaussianBlur stdDeviation="6" result="blur2"/>
+<feGaussianBlur stdDeviation="12" result="blur3"/>
+<feMerge><feMergeNode in="blur3"/><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="tr-badge-glow" x="-30%" y="-30%" width="160%" height="160%">
+<feGaussianBlur stdDeviation="8" result="blur"/>
+<feComponentTransfer in="blur" result="brightBlur"><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+<feMerge><feMergeNode in="brightBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="tr-bg" cx="50%" cy="50%" r="75%">
+<stop offset="0%" stop-color="#3d000b" stop-opacity="0.8"/>
+<stop offset="50%" stop-color="#120004" stop-opacity="0.95"/>
+<stop offset="100%" stop-color="#020004" stop-opacity="1"/>
+</radialGradient>
+<pattern id="tr-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ff0033" stroke-width="0.4" opacity="0.08"/>
+</pattern>
+<pattern id="tr-scanlines" width="100" height="3" patternUnits="userSpaceOnUse">
+<line x1="0" y1="0" x2="100" y2="0" stroke="#000000" stroke-width="1" opacity="0.4"/>
+</pattern>
+<style>
+@keyframes tr-blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+@keyframes tr-sweep { 0% { transform: translateY(-400px); } 100% { transform: translateY(400px); } }
+@keyframes tr-pulse { 0%,100% { stroke-opacity: 0.6; } 50% { stroke-opacity: 1; } }
+.tr-mono { font-family: 'Courier New', Consolas, monospace; text-anchor: middle; }
+.tr-cursor { animation: tr-blink 1.05s steps(1) infinite; }
+.tr-sweep-line { animation: tr-sweep 5.5s linear infinite; }
+.badge-border { animation: tr-pulse 2.4s ease-in-out infinite; }
+</style>
+</defs>
+<rect width="1200" height="400" fill="url(#tr-bg)"/>
+<rect width="1200" height="400" fill="url(#tr-grid)"/>
+<rect x="0" y="0" width="1200" height="2" fill="#ff0033" opacity="0.35" class="tr-sweep-line"/>
+<g filter="url(#tr-badge-glow)">
+<rect x="255" y="128" width="690" height="144" rx="12" fill="#040008" fill-opacity="0.88" stroke="#ff003d" stroke-width="2.5" class="badge-border"/>
+<text x="600" y="192" font-size="46" class="tr-mono" fill="#ff4d6d" filter="url(#tr-neon-glow)">TROWSER<tspan class="tr-cursor" fill="#ff0033">_</tspan></text>
+<text x="600" y="224" font-size="13" class="tr-mono" fill="#c0a0a8">&lt; Keyboard-driven TUI browser — btop-style, headless Chrome. &gt;</text>
+<text x="600" y="250" font-size="11" class="tr-mono" fill="#ff8095">[ STATUS: ONLINE ] [ NODE // BLESSED // CHROME ]</text>
+</g>
+<rect width="1200" height="400" fill="url(#tr-scanlines)"/>
+</svg>

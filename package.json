@@ -1,0 +1,26 @@
+{
+  "name": "tui-browser",
+  "version": "0.1.0",
+  "description": "A Btop-style TUI browser with headless Chrome rendering",
+  "main": "src/index.js",
+  "bin": {
+    "tui-browser": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "node --test --test-force-exit tests/test-unit.js tests/test-index.js tests/test-round2.js tests/test-fixes.js tests/test-reader.js tests/test-handover.js tests/test-round3.js tests/test-round4.js tests/test-round5.js tests/test-round6.js tests/test-boxcontain.js tests/test-engines.js tests/test-round7.js tests/test-openrouter.js tests/test-pdf.js tests/test-gallery-images.js tests/test-piano.js tests/test-piano-audio.js tests/test-pong.js tests/test-nowplaying.js tests/test-anim.js tests/test-feeds.js tests/test-gitcard.js tests/test-launch.js",
+    "keytest": "python3 scripts/keytest.py",
+    "boxcheck": "node scripts/boxcheck.js",
+    "e2e": "python3 scripts/e2e_journey.py"
+  },
+  "keywords": [],
+  "author": "rv2",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "blessed": "^0.1.81",
+    "playwright": "^1.63.0",
+    "sharp": "^0.34.0"
+  }
+}

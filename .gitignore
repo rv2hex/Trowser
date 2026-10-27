@@ -1,0 +1,20 @@
+# Dependencies — reinstall with `npm install`.
+node_modules/
+
+# PDFs — never commit generated documents.
+*.pdf
+
+# Secrets — keys live in the environment, never in files.
+.env
+.env.*
+
+# Python build noise from the test/e2e drivers.
+__pycache__/
+*.pyc
+
+# Local agent/tooling state.
+.openclaude/
+
+# Runtime noise.
+*.log
+npm-debug.log*
